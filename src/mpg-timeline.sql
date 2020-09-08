@@ -15,7 +15,7 @@ BEGIN
         SELECT
             fuel_purchase.vehicle_id,
             fuel_purchase.purchase_date,
-            fuel_purchase.car_mileage - LAG(fuel_purchase.car_mileage) OVER (PARTITION BY fuel_purchase.vehicle_id ORDER BY fuel_purchase.car_mileage) AS miles_travelled,
+            fuel_purchase.vehicle_mileage - LAG(fuel_purchase.vehicle_mileage) OVER (PARTITION BY fuel_purchase.vehicle_id ORDER BY fuel_purchase.vehicle_mileage) AS miles_travelled,
             fuel_purchase.gallons_purchased
         FROM
             fuel_purchase
