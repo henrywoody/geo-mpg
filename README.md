@@ -1,6 +1,6 @@
-# Geo MPG
+# Vehicle Portal
 
-Functionality for tracking fuel economy on the Geo Metro. Also can be used for other cars.
+Tools for keeping track of your vehicles.
 
 ## Setup
 
