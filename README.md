@@ -20,8 +20,24 @@ Set up the database by running the `setup-db.sql` file:
 psql postgres -f setup/setup-db.sql
 ```
 
-Run each migration by running:
+#### Migrations
+
+Run migrations with [`sql-migrate`](https://github.com/rubenv/sql-migrate).
+
+`sql-migrate` requires a `dbconfig.yml` file to be defined. The file should look like:
+
+```
+development:
+  dialect: postgres
+  datasource: [connection string]
+  dir: migrations/
+  table: migration
+
+```
+
+The following command can be used to get the connection string:
 
 ```shell
-psql $DB_NAME -U $DB_USER -f migrations/migration-name.sql
+echo "postgres://$DB_USER:$DB_PASS@$DB_HOST:$DB_PORT/$DB_NAME?connect_timeout=10&sslmode=disable"
 ```
+

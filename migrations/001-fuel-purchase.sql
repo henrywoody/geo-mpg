@@ -1,3 +1,6 @@
+
+-- +migrate Up
+
 CREATE TABLE fuel_purchase (
     id SERIAL PRIMARY KEY,
     purchase_date DATE NOT NULL,
@@ -5,3 +8,7 @@ CREATE TABLE fuel_purchase (
     gallons_purchased DOUBLE PRECISION NOT NULL,
     price DOUBLE PRECISION NOT NULL
 );
+
+-- +migrate Down
+
+DROP TABLE fuel_purchase;
